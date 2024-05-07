@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="323dp"
+            android:background="@color/material_dynamic_tertiary50"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="1dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:layout_weight="1"
+                android:src="@drawable/spot"/>
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="366dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="노래제목"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/singername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="가수이름"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="407dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="323dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/material_dynamic_tertiary50"
+                android:text="0:59"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:orientation="horizontal"
+                android:background="@color/material_dynamic_tertiary50">
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/ic_media_previous" />
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/ic_media_play" />
+
+                <ImageButton
+                    android:id="@+id/imageButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/ic_media_next" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seekBar5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/material_dynamic_tertiary50"
+                android:max="60"
+                android:progress="0"/>
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="날씨연동 On / Off" />
+
+            <Spinner
+                android:id="@+id/mood"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/mood"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/genre"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/genre"
+                android:spinnerMode="dropdown" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="제출" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

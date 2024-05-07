@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="genre">
+        <item>K-Pop</item>
+        <item>Pop</item>
+        <item>Dance</item>
+        <item>록</item>
+        <item>발라드</item>
+        <item>클래식</item>
+        <item>재즈</item>
+        <item>힙합</item>
+        <item>R&amp;b</item>
+        <item>J-Pop</item>
+    </string-array>
+</resources>

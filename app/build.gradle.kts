@@ -1,4 +1,5 @@
 plugins {
+
     alias(libs.plugins.androidApplication)
 }
 
@@ -8,6 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.appprogramming"
+
         minSdk = 33
         targetSdk = 34
         versionCode = 1

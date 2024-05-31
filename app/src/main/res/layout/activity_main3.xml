@@ -8,7 +8,7 @@
     tools:context=".MainActivity3">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/weatherBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="252dp"
@@ -72,7 +72,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/happyBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="452dp"
@@ -83,7 +83,7 @@
         app:srcCompat="@drawable/happy" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/calmBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="452dp"
@@ -94,7 +94,7 @@
         app:srcCompat="@drawable/calm" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/energeticBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="452dp"
@@ -105,7 +105,7 @@
         app:srcCompat="@drawable/energetic" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/relaxedBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="576dp"
@@ -116,7 +116,7 @@
         app:srcCompat="@drawable/relaxed" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/mativatedBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="576dp"
@@ -127,7 +127,7 @@
         app:srcCompat="@drawable/motivated" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/romanticBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="576dp"

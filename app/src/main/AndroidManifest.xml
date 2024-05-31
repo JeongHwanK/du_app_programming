@@ -28,6 +28,7 @@
         </activity>
         <activity android:name="MainActivity2" android:label = "MainActivity2"> </activity>
         <activity android:name="MainActivity3" android:label = "MainActivity3"> </activity>
+        <activity android:name="MainActivity4" android:label = "MainActivity4"> </activity>
     </application>
 
 </manifest>

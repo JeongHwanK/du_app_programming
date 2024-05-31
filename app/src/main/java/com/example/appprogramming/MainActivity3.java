@@ -8,9 +8,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.Button;
 
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,10 +44,13 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
     ImageView happySongBtn, calmSongBtn, energeticSongBtn, relaxedSongBtn, motivatedSongBtn, romanticSongBtn;
 
-    String genre, latitude, longitude , mainWeather, InputBtnValue ;
-    TextView genreview;
+    String genre, latitude, longitude , InputBtnValue, CurWeather, check;
+    TextView genreview, temperature;
+
 
     ImageView weatherImage;
+
+    Button weatherBtn;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -63,6 +66,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
         genreview = findViewById(R.id.genre);
         weatherImage = findViewById(R.id.imageView);
+        temperature = findViewById(R.id.temperature);
 
         happySongBtn = findViewById(R.id.happyBtn);
         calmSongBtn = findViewById(R.id.calmBtn);
@@ -70,14 +74,15 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         relaxedSongBtn = findViewById(R.id.relaxedBtn);
         motivatedSongBtn = findViewById(R.id.motivatedBtn);
         romanticSongBtn = findViewById(R.id.romanticBtn);
+        weatherBtn = findViewById(R.id.weatherBtn);
 
-        // 모든 버튼에 대해 OnClickListener 설정
         happySongBtn.setOnClickListener(this);
         calmSongBtn.setOnClickListener(this);
         energeticSongBtn.setOnClickListener(this);
         relaxedSongBtn.setOnClickListener(this);
         motivatedSongBtn.setOnClickListener(this);
         romanticSongBtn.setOnClickListener(this);
+        weatherBtn.setOnClickListener(this);
 
         Intent intent = getIntent();
 
@@ -85,13 +90,8 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
             genre = intent.getStringExtra("genre");
             latitude = intent.getStringExtra("latitude");
             longitude = intent.getStringExtra("longitude");
-            if (genre.equals("english")) {
-                genreview.setText("Genre : PoP");
-            } else if (genre.equals("korea")) {
-                genreview.setText("Genre : K-PoP");
-            } else if (genre.equals("japan")) {
-                genreview.setText("Genre : J-PoP");
-            }
+
+            genreview.setText(genre);
             Log.d("CheckValue3", "latitude : "+ latitude + "longitude : " +longitude);
         }
 
@@ -102,7 +102,8 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 "&lon=" + 127;
         Log.d("TAG", "Value :"+ Url);
         try {
-            String weather = new WeaterSearchTask().execute(Url).get();
+            CurWeather = new WeaterSearchTask().execute(Url).get();
+            Log.d("CurWeather", CurWeather);
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
@@ -115,31 +116,41 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.weatherBtn) {
-
+            InputBtnValue = CurWeather;
+            Log.d("InputBtnValue", CurWeather);
+            check = "0";
+            gptApi();
         } else if (id == R.id.happyBtn) {
             InputBtnValue = "happy";
-            gptApi(InputBtnValue);
+            check = "1";
+            gptApi();
         } else if (id == R.id.calmBtn) {
             InputBtnValue = "calm";
-            gptApi(InputBtnValue);
+            check = "1";
+            gptApi();
         } else if (id == R.id.energeticBtn) {
             InputBtnValue = "energetic";
-            gptApi(InputBtnValue);
+            check = "1";
+            gptApi();
         } else if (id == R.id.relaxedBtn) {
             InputBtnValue = "relaxed";
-            gptApi(InputBtnValue);
+            check = "1";
+            gptApi();
         } else if (id == R.id.motivatedBtn) {
             InputBtnValue = "motivated";
-            gptApi(InputBtnValue);
+            check = "1";
+            gptApi();
         } else if (id == R.id.romanticBtn) {
             InputBtnValue = "romantic";
-            gptApi(InputBtnValue);
+            check = "1";
+            gptApi();
         }
     }
 
     private class WeaterSearchTask extends AsyncTask<String, Void, String> {
         protected String doInBackground(String... strings) {
             String result = "";
+            String mainWeather = null;
             try {
                 URL url = new URL(strings[0]);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -162,25 +173,29 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 JSONArray weatherArray = jsonObject.getJSONArray("weather");
 
                 JSONObject weatherObject = weatherArray.getJSONObject(0);
+                JSONObject mainObject = jsonObject.getJSONObject("main");
                 mainWeather = weatherObject.getString("main");
                 String weatherIcon = weatherObject.getString("icon");
-                String imageUrl = "https://openweathermap.org/img/w/"+weatherIcon+".png";
+                String temp = mainObject.getString("temp");
+                String imageUrl = "https://openweathermap.org/img/w/" + weatherIcon + ".png";
                 Bitmap bmp = null;
                 URL imageurl = new URL(imageUrl);
                 bmp = BitmapFactory.decodeStream(imageurl.openConnection().getInputStream());
                 weatherImage.setImageBitmap(bmp);
+                temperature.setText(temp+"°C");
 
                 conn.disconnect();
 
             } catch (Exception e) {
 
             }
-            return null;
+            return mainWeather;
         }
     }
 
-    //장르와 분위기로 노래 추천
-    private void gptApi ( String InputBtnValue ) {
+
+    private void gptApi () {
+
         final String TAG = "MainActivity3";
         final String API_KEY = BuildConfig.OPENAI_API_KEY;
         final String API_URL = "https://api.openai.com/v1/chat/completions";
@@ -194,7 +209,9 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
             JSONArray messages = new JSONArray();
             JSONObject message = new JSONObject();
             message.put("role", "system");
-            message.put("content", "You are a program that always recommends two songs depending on the weather or a person's mood. You must provide a response in JSON format. You should only recommend songs from 2010 or later.  "+
+            message.put("content", "You are a program that always recommends two " + genre + " genre songs depending on the weather or mood. You must provide a response in JSON format. " +
+                    "Please reply in 20 characters by relating the reason you recommend the song to the weather or mood." +
+                    "The reason is that I only answer in Korean." + //You should only recommend songs from 2010 or later.  "+
                     "Json response example is {\"songs\": [" +
                     "{\"song\": \"When We Were Young\", \"artist\": \"Adele\", \"reason\": \"아델의 감성적인 목소리와 함께 지나간 시간들을 추억하며 들을 수 있는 곡입니다.\", \"}," +
                     "{\"song\": \"Someone Like You\", \"artist\": \"Adele\", \"reason\": \"이 곡은 이별의 슬픔을 담담하게 표현한 곡으로, 많은 사람들의 공감을 얻은 노래입니다.\"}" +
@@ -202,7 +219,16 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
             JSONObject userMessage = new JSONObject();
             userMessage.put("role", "user");
-            userMessage.put("content", "The current vibe is "+ InputBtnValue +". Can you recommend some "+ genre + " songs?");
+
+            if(check.equals("1")) { // 기분
+                userMessage.put("content", "The current vibe is "+ InputBtnValue +". Recommend two " + genre + " genre songs that fit the mood.");
+                Log.d("userMessage", userMessage.toString());
+            }
+            else { // 날씨
+                userMessage.put("content", "The current weather is "+ InputBtnValue +". Recommend two " + genre + " genre songs that suit the weather.");
+                Log.d("userMessage", userMessage.toString());
+            }
+
 
             messages.put(message);
             messages.put(userMessage);
@@ -242,9 +268,10 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Log.d("Value", String.valueOf(json));
-                                    //genreview로 youtube로 값 넘기기
-                                    genreview.setText(gptResponse);
+                                    Intent intent = new Intent(MainActivity3.this, MainActivity4.class);
+                                    intent.putExtra("Value", gptResponse);
+                                    Log.d("CheckValue5", "Value : " + gptResponse);
+                                    startActivity(intent);
                                 }
                             });
                         } catch (JSONException e) {

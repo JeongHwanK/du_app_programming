@@ -53,4 +53,5 @@ dependencies {
     implementation(files("libs/jsoup-1.17.2.jar"))
     implementation("org.json:json:20210307")
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0")
 }

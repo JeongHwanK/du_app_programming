@@ -42,12 +42,12 @@ public class MainActivity2 extends AppCompatActivity {
         pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String genre = "english";
+                String genre = "pop";
                 Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
-                intent.putExtra("genre",genre);
-                intent.putExtra("latitude",latitude);
-                intent.putExtra("longitude",longitude);
-                Log.d("CheckValue2", "latitude : "+ latitude + "longitude : " +longitude);
+                intent.putExtra("genre", genre);
+                intent.putExtra("latitude", latitude);
+                intent.putExtra("longitude", longitude);
+                Log.d("CheckValue2", "latitude : " + latitude + "longitude : " + longitude);
                 startActivity(intent);
             }
         });
@@ -55,12 +55,12 @@ public class MainActivity2 extends AppCompatActivity {
         kpop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String genre = "korea";
+                String genre = "k-pop";
                 Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
-                intent.putExtra("genre",genre);
-                intent.putExtra("latitude",latitude);
-                intent.putExtra("longitude",longitude);
-                Log.d("CheckValue2", "latitude : "+ latitude + "longitude : " +longitude);
+                intent.putExtra("genre", genre);
+                intent.putExtra("latitude", latitude);
+                intent.putExtra("longitude", longitude);
+                Log.d("CheckValue2", "latitude : " + latitude + "longitude : " + longitude);
                 startActivity(intent);
             }
         });
@@ -68,12 +68,12 @@ public class MainActivity2 extends AppCompatActivity {
         jpop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String genre = "japan";
+                String genre = "j-pop";
                 Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
-                intent.putExtra("genre",genre);
-                intent.putExtra("latitude",latitude);
-                intent.putExtra("longitude",longitude);
-                Log.d("CheckValue2", "latitude : "+ latitude + "longitude : " +longitude);
+                intent.putExtra("genre", genre);
+                intent.putExtra("latitude", latitude);
+                intent.putExtra("longitude", longitude);
+                Log.d("CheckValue2", "latitude : " + latitude + "longitude : " + longitude);
                 startActivity(intent);
             }
         });

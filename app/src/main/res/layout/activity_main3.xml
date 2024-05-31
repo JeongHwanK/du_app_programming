@@ -32,11 +32,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="344dp"
+        android:text="10c"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="102dp"
         android:layout_height="40dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="124dp"
         android:text="Weather"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -44,7 +58,6 @@
         app:layout_constraintHorizontal_bias="0.035"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/textView3"
@@ -63,8 +76,8 @@
         android:id="@+id/genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="72dp"
         android:text="Genre : "
         android:textSize="26sp"
         android:textStyle="bold"
@@ -75,10 +88,10 @@
         android:id="@+id/imageView"
         android:layout_width="158dp"
         android:layout_height="155dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="180dp"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

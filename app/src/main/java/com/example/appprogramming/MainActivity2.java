@@ -1,13 +1,12 @@
 package com.example.appprogramming;
 
-import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,10 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    Button pop;
-    Button kpop;
-    Button jpop;
-    ActivityResultLauncher<Intent> launcher;
+    Button pop, kpop, jpop;
+    String latitude, longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,25 +32,49 @@ public class MainActivity2 extends AppCompatActivity {
         kpop = findViewById(R.id.kpop);
         jpop = findViewById(R.id.jpop);
 
+        Intent intent = getIntent();
+
+        if (intent != null) {
+            latitude = intent.getStringExtra("latitude");
+            longitude = intent.getStringExtra("longitude");
+        }
+
         pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String genre = "외국";
+                String genre = "english";
                 Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+                intent.putExtra("genre",genre);
+                intent.putExtra("latitude",latitude);
+                intent.putExtra("longitude",longitude);
+                Log.d("CheckValue2", "latitude : "+ latitude + "longitude : " +longitude);
+                startActivity(intent);
             }
         });
 
         kpop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String genre = "korea";
+                Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+                intent.putExtra("genre",genre);
+                intent.putExtra("latitude",latitude);
+                intent.putExtra("longitude",longitude);
+                Log.d("CheckValue2", "latitude : "+ latitude + "longitude : " +longitude);
+                startActivity(intent);
             }
         });
 
         jpop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String genre = "japan";
+                Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+                intent.putExtra("genre",genre);
+                intent.putExtra("latitude",latitude);
+                intent.putExtra("longitude",longitude);
+                Log.d("CheckValue2", "latitude : "+ latitude + "longitude : " +longitude);
+                startActivity(intent);
             }
         });
     }

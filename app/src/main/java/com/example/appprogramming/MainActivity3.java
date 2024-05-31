@@ -44,7 +44,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
     ImageView happySongBtn, calmSongBtn, energeticSongBtn, relaxedSongBtn, motivatedSongBtn, romanticSongBtn;
 
-    String genre, latitude, longitude , mainWeather , mood;
+    String genre, latitude, longitude , mainWeather, InputBtnValue ;
     TextView genreview;
 
     ImageView weatherImage;
@@ -99,7 +99,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 "?appid=f2862e5c64f5a4f8ad16954c71739b61" +
                 "&units=metric" +
                 "&lat=" + 37 +
-                "&lon=" +127;
+                "&lon=" + 127;
         Log.d("TAG", "Value :"+ Url);
         try {
             String weather = new WeaterSearchTask().execute(Url).get();
@@ -117,23 +117,23 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         if (id == R.id.weatherBtn) {
 
         } else if (id == R.id.happyBtn) {
-            mood = "happy";
-            gptApi(genreview,mood);
+            InputBtnValue = "happy";
+            gptApi(InputBtnValue);
         } else if (id == R.id.calmBtn) {
-            mood = "calm";
-            gptApi(genreview,mood);
+            InputBtnValue = "calm";
+            gptApi(InputBtnValue);
         } else if (id == R.id.energeticBtn) {
-            mood = "energetic";
-            gptApi(genreview,mood);
+            InputBtnValue = "energetic";
+            gptApi(InputBtnValue);
         } else if (id == R.id.relaxedBtn) {
-            mood = "relaxed";
-            gptApi(genreview,mood);
+            InputBtnValue = "relaxed";
+            gptApi(InputBtnValue);
         } else if (id == R.id.motivatedBtn) {
-            mood = "motivated";
-            gptApi(genreview,mood);
+            InputBtnValue = "motivated";
+            gptApi(InputBtnValue);
         } else if (id == R.id.romanticBtn) {
-            mood = "romantic";
-            gptApi(genreview,mood);
+            InputBtnValue = "romantic";
+            gptApi(InputBtnValue);
         }
     }
 
@@ -180,13 +180,13 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
     }
 
     //장르와 분위기로 노래 추천
-    private void gptApi (TextView genreview, String mood ) {
+    private void gptApi ( String InputBtnValue ) {
         final String TAG = "MainActivity3";
         final String API_KEY = BuildConfig.OPENAI_API_KEY;
         final String API_URL = "https://api.openai.com/v1/chat/completions";
         OkHttpClient client = new OkHttpClient();
 
-        String genre = genreview.getText().toString();
+
 
         try {
             JSONObject json = new JSONObject();
@@ -202,7 +202,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
             JSONObject userMessage = new JSONObject();
             userMessage.put("role", "user");
-            userMessage.put("content", "The current vibe is "+ mood +". Can you recommend some "+ genre + " songs?");
+            userMessage.put("content", "The current vibe is "+ InputBtnValue +". Can you recommend some "+ genre + " songs?");
 
             messages.put(message);
             messages.put(userMessage);

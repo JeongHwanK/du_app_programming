@@ -2,114 +2,139 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity3">
 
     <Button
         android:id="@+id/button"
-        android:layout_width="147dp"
-        android:layout_height="59dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="252dp"
         android:backgroundTint="#000000"
-        android:text="오늘 날씨로 노래 추천 받기"
-        tools:ignore="DuplicateIds,HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="186dp" />
+        android:text="날씨로 노래 추천 받기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="117dp"
-        android:layout_height="37dp"
-        android:text="Weather"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        tools:ignore="DuplicateIds,HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="110dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="94dp"
-        android:layout_height="38dp"
-        android:text="Mood"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        tools:ignore="DuplicateIds,HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="420dp" />
-
-    <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView1"
         android:layout_width="181dp"
-        android:layout_height="47dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
         android:text="Today music"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:ignore="DuplicateIds,HardcodedText,MissingConstraints,TextSizeCheck"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="102dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="140dp"
+        android:text="Weather"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="400dp"
+        android:text="Mood"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="212dp"
         android:contentDescription="TODO"
-        tools:ignore="ContentDescription,HardcodedText,MissingConstraints,ImageContrastCheck"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="156dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/happy"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="458dp"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="452dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/happy" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="102dp"
-        android:layout_height="103dp"
-        app:srcCompat="@drawable/calm"
-        tools:ignore="ContentDescription,MissingConstraints"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="454dp" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="452dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/calm" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/energetic"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="458dp"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="452dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/energetic" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/relaxed"
-        tools:ignore="ContentDescription,MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="554dp" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="576dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/relaxed" />
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/motivated"
-        tools:ignore="ContentDescription,MissingConstraints"
-        tools:layout_editor_absoluteX="216dp"
-        tools:layout_editor_absoluteY="553dp" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="576dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/motivated" />
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/romantic"
-        tools:ignore="ContentDescription,MissingConstraints"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="553dp" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="576dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/romantic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

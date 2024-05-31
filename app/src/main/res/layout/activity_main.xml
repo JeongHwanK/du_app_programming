@@ -7,30 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="208dp"
         android:text="Today music"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.301"
         tools:ignore="HardcodedText" />
-
-    <Button
-        android:id="@+id/btn_s"
-        android:layout_width="125dp"
-        android:layout_height="48dp"
-        android:backgroundTint="#000000"
-        android:text="시작하기"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="424dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

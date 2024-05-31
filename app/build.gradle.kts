@@ -1,8 +1,13 @@
+import java.util.Properties
+
 plugins {
 
     alias(libs.plugins.androidApplication)
 }
-
+val properties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+localPropertiesFile.inputStream().use { properties.load(it) }
+extra.set("OPENAI_API_KEY", properties.getProperty("OPENAI_API_KEY"))
 android {
     namespace = "com.example.appprogramming"
     compileSdk = 34
@@ -16,7 +21,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField ("String", "OPENAI_API_KEY", properties.getProperty("OPENAI_API_KEY"))
     }
+    buildFeatures {
+        buildConfig = true
+    }
+
 
     buildTypes {
         release {
@@ -42,4 +52,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(files("libs/jsoup-1.17.2.jar"))
     implementation("org.json:json:20210307")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
 }

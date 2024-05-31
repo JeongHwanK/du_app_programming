@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/happyBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -93,7 +93,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/happy" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/calmBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -104,7 +104,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/calm" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/energeticBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -115,7 +115,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/energetic" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/relaxedBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -126,8 +126,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/relaxed" />
 
-    <ImageView
-        android:id="@+id/mativatedBtn"
+    <ImageButton
+        android:id="@+id/motivatedBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="576dp"
@@ -137,7 +137,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/motivated" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/romanticBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"

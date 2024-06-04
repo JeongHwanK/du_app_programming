@@ -21,7 +21,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="324dp"
+        android:layout_marginTop="260dp"
         android:fontFamily="@font/title"
         android:text="Today music"
         android:textSize="30pt"

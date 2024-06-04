@@ -177,6 +177,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 mainWeather = weatherObject.getString("main");
                 String weatherIcon = weatherObject.getString("icon");
                 String temp = mainObject.getString("temp");
+                int temp2 = (int) Math.round(Float.parseFloat(temp));
                 String name = jsonObject.getString("name");
                 Log.d("nameValue",name);
                 String imageUrl = "https://openweathermap.org/img/w/" + weatherIcon + ".png";
@@ -184,7 +185,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 URL imageurl = new URL(imageUrl);
                 bmp = BitmapFactory.decodeStream(imageurl.openConnection().getInputStream());
                 weatherImage.setImageBitmap(bmp);
-                temperature.setText(temp+"°C");
+                temperature.setText(temp2+"°C");
                 location.setText(name);
 
                 conn.disconnect();

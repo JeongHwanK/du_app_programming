@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/songTextView"
-        android:layout_width="200dp"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
@@ -37,11 +37,11 @@
         android:id="@+id/artistTextView"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
+        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         android:text="Artist"
         android:textSize="18sp"
-        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         app:layout_constraintBottom_toTopOf="@+id/reasonTextView"
         app:layout_constraintStart_toEndOf="@+id/artist"
         app:layout_constraintTop_toTopOf="parent"
@@ -71,7 +71,7 @@
 
     <TextView
         android:id="@+id/songTextView2"
-        android:layout_width="200dp"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="19dp"
@@ -97,11 +97,11 @@
         android:id="@+id/artistTextView2"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="88dp"
         android:layout_marginBottom="18dp"
+        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         android:text="Artist"
         android:textSize="18sp"
-        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         app:layout_constraintBottom_toTopOf="@+id/reasonTextView2"
         app:layout_constraintStart_toStartOf="@+id/artist2" />
 

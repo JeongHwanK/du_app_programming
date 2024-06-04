@@ -68,13 +68,13 @@ public class MainActivity4 extends AppCompatActivity {
                 String reason = songObject.getString("reason");
 
                 if (i == 0) {
-                    songTextView1.setText("Song: " + song);
-                    artistTextView1.setText("Artist: " + artist);
-                    reasonTextView1.setText("Reason: " + reason);
+                    songTextView1.setText(song);
+                    artistTextView1.setText(artist);
+                    reasonTextView1.setText(reason);
                 } else if (i == 1) {
-                    songTextView2.setText("Song: " + song);
-                    artistTextView2.setText("Artist: " + artist);
-                    reasonTextView2.setText("Reason: " + reason);
+                    songTextView2.setText(song);
+                    artistTextView2.setText(artist);
+                    reasonTextView2.setText(reason);
                 }
 
                 String query = song + " " + artist;

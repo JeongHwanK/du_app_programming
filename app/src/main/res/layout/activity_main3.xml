@@ -7,13 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity3">
 
-    <Button
+    <ImageView
+        android:id="@+id/imageView2638023590"
+        android:layout_width="407dp"
+        android:layout_height="500dp"
+        android:layout_marginTop="328dp"
+        app:layout_constraintEnd_toEndOf="@+id/calmBtn"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toEndOf="@+id/calmBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/weatherBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
-        android:backgroundTint="#000000"
-        android:text="날씨로 노래 추천 받기"
+        android:layout_marginTop="244dp"
+        android:background="@drawable/button_desion"
+        android:text=" 날씨로 노래 추천 받기  "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.817"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,11 +33,13 @@
     <TextView
         android:id="@+id/textView1"
         android:layout_width="181dp"
-        android:layout_height="40dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="366dp"
         android:text="Today music"
         android:textSize="30sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2638023590"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,12 +50,25 @@
         android:id="@+id/temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="344dp"
+        android:layout_marginTop="256dp"
         android:text="10c"
-        android:textSize="15sp"
+        android:textSize="10pt"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintHorizontal_bias="0.338"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="164dp"
+        android:text="Hayang"
+        android:textSize="15pt"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +89,7 @@
         android:id="@+id/textView3"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="352dp"
         android:text="Mood"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -86,12 +112,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="158dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="180dp"
+        android:layout_width="110dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="208dp"
         android:contentDescription="TODO"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,7 +125,7 @@
         android:id="@+id/happyBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="452dp"
+        android:layout_marginTop="412dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +136,7 @@
         android:id="@+id/calmBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="452dp"
+        android:layout_marginTop="412dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +147,7 @@
         android:id="@+id/energeticBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="452dp"
+        android:layout_marginTop="412dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,7 +158,7 @@
         android:id="@+id/relaxedBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="576dp"
+        android:layout_marginTop="540dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +169,7 @@
         android:id="@+id/motivatedBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="576dp"
+        android:layout_marginTop="540dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
@@ -154,11 +180,12 @@
         android:id="@+id/romanticBtn"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="576dp"
+        android:layout_marginTop="540dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/romantic" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

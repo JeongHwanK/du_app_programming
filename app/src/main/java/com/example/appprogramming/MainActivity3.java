@@ -45,8 +45,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
     ImageView happySongBtn, calmSongBtn, energeticSongBtn, relaxedSongBtn, motivatedSongBtn, romanticSongBtn;
 
     String genre, latitude, longitude , InputBtnValue, CurWeather, check;
-    TextView genreview, temperature;
-
+    TextView genreview, temperature, location;
 
     ImageView weatherImage;
 
@@ -67,6 +66,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         genreview = findViewById(R.id.genre);
         weatherImage = findViewById(R.id.imageView);
         temperature = findViewById(R.id.temperature);
+        location = findViewById(R.id.location);
 
         happySongBtn = findViewById(R.id.happyBtn);
         calmSongBtn = findViewById(R.id.calmBtn);
@@ -98,8 +98,8 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         String Url = "https://api.openweathermap.org/data/2.5/weather" +
                 "?appid=f2862e5c64f5a4f8ad16954c71739b61" +
                 "&units=metric" +
-                "&lat=" + 37 +
-                "&lon=" + 127;
+                "&lat=" + 35.9018 + // 대구대 위경도
+                "&lon=" +128.8489;
         Log.d("TAG", "Value :"+ Url);
         try {
             CurWeather = new WeaterSearchTask().execute(Url).get();
@@ -177,12 +177,15 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 mainWeather = weatherObject.getString("main");
                 String weatherIcon = weatherObject.getString("icon");
                 String temp = mainObject.getString("temp");
+                String name = jsonObject.getString("name");
+                Log.d("nameValue",name);
                 String imageUrl = "https://openweathermap.org/img/w/" + weatherIcon + ".png";
                 Bitmap bmp = null;
                 URL imageurl = new URL(imageUrl);
                 bmp = BitmapFactory.decodeStream(imageurl.openConnection().getInputStream());
                 weatherImage.setImageBitmap(bmp);
                 temperature.setText(temp+"°C");
+                location.setText(name);
 
                 conn.disconnect();
 
@@ -193,15 +196,13 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         }
     }
 
-
     private void gptApi () {
-
         final String TAG = "MainActivity3";
         final String API_KEY = BuildConfig.OPENAI_API_KEY;
         final String API_URL = "https://api.openai.com/v1/chat/completions";
         OkHttpClient client = new OkHttpClient();
 
-
+        String genre = genreview.getText().toString();
 
         try {
             JSONObject json = new JSONObject();
@@ -219,7 +220,6 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
             JSONObject userMessage = new JSONObject();
             userMessage.put("role", "user");
-
             if(check.equals("1")) { // 기분
                 userMessage.put("content", "The current vibe is "+ InputBtnValue +". Recommend two " + genre + " genre songs that fit the mood.");
                 Log.d("userMessage", userMessage.toString());
@@ -228,7 +228,6 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 userMessage.put("content", "The current weather is "+ InputBtnValue +". Recommend two " + genre + " genre songs that suit the weather.");
                 Log.d("userMessage", userMessage.toString());
             }
-
 
             messages.put(message);
             messages.put(userMessage);

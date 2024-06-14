@@ -1,5 +1,12 @@
 <resources>
 
     <string name="app_name">appProgramming</string>
+    <string-array name="YearSpinner_items">
+        <item>1980</item>
+        <item>1990</item>
+        <item>2000</item>
+        <item>2010</item>
+        <item>2020</item>
+    </string-array>
 
 </resources>

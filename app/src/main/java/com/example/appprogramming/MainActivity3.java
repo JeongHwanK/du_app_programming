@@ -10,9 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.util.Log;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.activity.EdgeToEdge;
@@ -50,6 +54,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
     ImageView weatherImage;
 
     Button weatherBtn;
+    String selectYear;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -76,6 +81,28 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         romanticSongBtn = findViewById(R.id.romanticBtn);
         weatherBtn = findViewById(R.id.weatherBtn);
 
+        Spinner YearSpinner = findViewById(R.id.YearSpinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.YearSpinner_items, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        YearSpinner.setAdapter(adapter);
+
+        YearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectYear = parent.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Toast.makeText(parent.getContext(), "연도를 선택해주세요", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
         happySongBtn.setOnClickListener(this);
         calmSongBtn.setOnClickListener(this);
         energeticSongBtn.setOnClickListener(this);
@@ -98,8 +125,8 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         String Url = "https://api.openweathermap.org/data/2.5/weather" +
                 "?appid=f2862e5c64f5a4f8ad16954c71739b61" +
                 "&units=metric" +
-                "&lat=" + 35.9018 + // 대구대 위경도
-                "&lon=" +128.8489;
+                "&lat=" + latitude + // 대구대 위경도
+                "&lon=" +longitude;
         Log.d("TAG", "Value :"+ Url);
         try {
             CurWeather = new WeaterSearchTask().execute(Url).get();
@@ -203,21 +230,31 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         final String API_URL = "https://api.openai.com/v1/chat/completions";
         OkHttpClient client = new OkHttpClient();
 
+        int lateYear = Integer.parseInt(selectYear)+9;
+
         String genre = genreview.getText().toString();
 
         try {
             JSONObject json = new JSONObject();
-            json.put("model", "gpt-3.5-turbo");
+            json.put("model", "gpt-4o");
             JSONArray messages = new JSONArray();
             JSONObject message = new JSONObject();
             message.put("role", "system");
-            message.put("content", "You are a program that always recommends two " + genre + " genre songs depending on the weather or mood. You must provide a response in JSON format. " +
-                    "Please reply in 20 characters by relating the reason you recommend the song to the weather or mood." +
-                    "The reason is that I only answer in Korean." + //You should only recommend songs from 2010 or later.  "+
+            message.put("content", "You are a program that always recommends two " + genre +
+                    " genre songs depending on the weather or mood. You must provide a response in JSON format. " +
+                    "Please reply in 20 characters by relating the reason you recommend the song to the weather or mood. " +
+                    "The reason is that I only answer in Korean. You should only recommend songs from between " + selectYear + " and " + lateYear +"." +
                     "Json response example is {\"songs\": [" +
-                    "{\"song\": \"When We Were Young\", \"artist\": \"Adele\", \"reason\": \"아델의 감성적인 목소리와 함께 지나간 시간들을 추억하며 들을 수 있는 곡입니다.\", \"}," +
-                    "{\"song\": \"Someone Like You\", \"artist\": \"Adele\", \"reason\": \"이 곡은 이별의 슬픔을 담담하게 표현한 곡으로, 많은 사람들의 공감을 얻은 노래입니다.\"}" +
+                        "{\"song\": \"When We Were Young\", " +
+                        "\"artist\": \"Adele\", " +
+                        "\"reason\": \"아델의 감성적인 목소리와 함께 지나간 시간들을 추억하며 들을 수 있는 곡입니다.\", " +
+                        "\"ReleaseDate\": \"발매일은 2016년 2월 5일 입니다.\", \"}," +
+                        "{\"song\": \"Someone Like You\", " +
+                        "\"artist\": \"Adele\", " +
+                        "\"reason\": \"이 곡은 이별의 슬픔을 담담하게 표현한 곡으로, 많은 사람들의 공감을 얻은 노래입니다.\", " +
+                        "\"ReleaseDate\": \"발매일은 2016년 2월 5일 입니다.\", \"}" +
                     "]}");
+            Log.d("sysMessage", message.toString());
 
             JSONObject userMessage = new JSONObject();
             userMessage.put("role", "user");
@@ -254,9 +291,9 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
-                    Log.d("Value", "33");
+
                     if (response.isSuccessful()) {
-                        Log.d("Value", "33");
+
                         String responseData = response.body().string();
                         Log.d(TAG, "Response: " + responseData);
                         try {

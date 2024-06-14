@@ -23,7 +23,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int SPLASH_TIMEOUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 }
-                            }, SPLASH_TIMEOUT);
+                            }, 3000);
                         }
                     }
                 });

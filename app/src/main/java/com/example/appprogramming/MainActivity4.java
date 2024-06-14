@@ -1,5 +1,6 @@
 package com.example.appprogramming;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -28,9 +29,11 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity4 extends AppCompatActivity {
-    private TextView songTextView1, songTextView2, artistTextView1, artistTextView2, reasonTextView1, reasonTextView2;
+    private TextView songTextView1, songTextView2, artistTextView1, artistTextView2, reasonTextView1, reasonTextView2, releaseDate1,releaseDate2;
+
     String Value;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,8 @@ public class MainActivity4 extends AppCompatActivity {
         songTextView2 = findViewById(R.id.songTextView2);
         artistTextView2 = findViewById(R.id.artistTextView2);
         reasonTextView2 = findViewById(R.id.reasonTextView2);
+        releaseDate1 = findViewById(R.id.releasedateTextView1);
+        releaseDate2 = findViewById(R.id.releasedateTextView2);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -66,15 +71,18 @@ public class MainActivity4 extends AppCompatActivity {
                 String song = songObject.getString("song");
                 String artist = songObject.getString("artist");
                 String reason = songObject.getString("reason");
+                String releaseDate = songObject.getString("ReleaseDate");
 
                 if (i == 0) {
                     songTextView1.setText(song);
                     artistTextView1.setText(artist);
                     reasonTextView1.setText(reason);
+                    releaseDate1.setText(releaseDate);
                 } else if (i == 1) {
                     songTextView2.setText(song);
                     artistTextView2.setText(artist);
                     reasonTextView2.setText(reason);
+                    releaseDate2.setText(releaseDate);
                 }
 
                 String query = song + " " + artist;

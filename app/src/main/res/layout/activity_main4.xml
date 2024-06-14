@@ -5,19 +5,48 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity4">
 
     <TextView
-        android:id="@+id/songTextView"
-        android:layout_width="165dp"
+        android:id="@+id/reasonTextView"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:text="Song"
-        android:textSize="18sp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/lxgwwenkaimonotc_bold"
+        android:text="Reason"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/songTextView" />
+
+    <TextView
+        android:id="@+id/releasedateTextView1"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/lxgwwenkaimonotc_bold"
+        android:text="ReleaseDate"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/youtube_player_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reasonTextView" />
+
+    <TextView
+        android:id="@+id/releasedateTextView2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/lxgwwenkaimonotc_bold"
+        android:text="ReleaseDate"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/youtube_player_view2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reasonTextView2" />
 
     <TextView
         android:id="@+id/artist"
@@ -25,13 +54,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
+        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         android:text="Artist : "
         android:textSize="18sp"
-        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         app:layout_constraintBottom_toTopOf="@+id/reasonTextView"
         app:layout_constraintStart_toEndOf="@+id/songTextView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/artistTextView"
@@ -45,60 +74,48 @@
         app:layout_constraintBottom_toTopOf="@+id/reasonTextView"
         app:layout_constraintStart_toEndOf="@+id/artist"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/reasonTextView"
-        android:layout_width="350dp"
+        android:id="@+id/songTextView"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Reason"
-        android:textSize="18sp"
         android:fontFamily="@font/lxgwwenkaimonotc_bold"
+        android:text="Song"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/songTextView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:id="@+id/youtube_player_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="160dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reasonTextView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/songTextView2"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         android:text="Song"
         android:textSize="18sp"
-        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         app:layout_constraintBottom_toTopOf="@+id/reasonTextView2"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/artist2"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="19dp"
-        android:text="Artist : "
-        android:textSize="18sp"
-        android:fontFamily="@font/lxgwwenkaimonotc_bold"
-        app:layout_constraintBottom_toTopOf="@+id/reasonTextView2"
-        app:layout_constraintStart_toEndOf="@+id/songTextView2" />
 
     <TextView
         android:id="@+id/artistTextView2"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/lxgwwenkaimonotc_bold"
         android:text="Artist"
         android:textSize="18sp"
@@ -110,12 +127,24 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="44dp"
+        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         android:text="Reason"
         android:textSize="18sp"
-        android:fontFamily="@font/lxgwwenkaimonotc_bold"
         app:layout_constraintBottom_toTopOf="@+id/youtube_player_view2"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/artist2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/lxgwwenkaimonotc_bold"
+        android:text="Artist : "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/reasonTextView2"
+        app:layout_constraintStart_toEndOf="@+id/songTextView2" />
 
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:id="@+id/youtube_player_view2"

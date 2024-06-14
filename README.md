@@ -1,8 +1,9 @@
 # DU-App Programming Team Project
 
 
----
-## 앱 이름 : Today Music
+
+* ### 앱 이름
+* ### Today Music
 
 
 * ##### 앱 소개 
